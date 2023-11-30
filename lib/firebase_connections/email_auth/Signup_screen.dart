@@ -35,6 +35,9 @@ class _SignupScreenState extends State<SignupScreen> {
       try {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
+        if(userCredential.user != null){
+          Navigator.pop(context);
+        }
         log("User is succfully created !!");
       } on FirebaseAuthException catch(ex){
         if(ex.code == " Password should be at least 6 characters"){
