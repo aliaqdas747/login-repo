@@ -1,9 +1,13 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled9/Screens/home_screen.dart';
 import 'package:untitled9/firebase_options.dart';
 
 import 'Screens/Splash_screen.dart';
+import 'firebase_connections/email_auth/Login_screen.dart';
+import 'firebase_connections/phone_auth/sign_in_with_phone.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +25,10 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+       //   primarySwatch: Colors.blue,
         ),
-        home: SplashScreen()
+        home: (FirebaseAuth.instance.currentUser != null)? home_screen() :
+        SigninWithPhone()
     );
   }
 }

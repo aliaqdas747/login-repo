@@ -16,13 +16,7 @@ class RoundBtn extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(
-
-                colors: [
-                  Colors.orange,
-                  Colors.pink.shade500,
-                  Colors.orange,]
-            )
+          color: Colors.deepOrange,
         ),
         child: Center(child: Text(title,style: TextStyle(fontWeight: FontWeight.w900,color: Colors.white),),),
       ),

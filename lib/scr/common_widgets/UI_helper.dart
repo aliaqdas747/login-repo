@@ -22,6 +22,9 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
 
             labelText: labelText,
+            labelStyle: TextStyle(
+              color: Colors.deepOrange
+            ),
             prefixIcon: Icon(iconData),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -37,26 +40,61 @@ class CustomTextField extends StatelessWidget {
 class UiHelper{
   static CoustomTextField(          //Static function is used when we want to call this function anywhere in the app
       TextEditingController controller ,//TextEditing controller is parameter &controller is instance .
-      String text,                //String is parameter and text is its instance
+      String text,
+      //String is parameter and text is its instance
       IconData iconData,
+      TextInputType keyboardType,
       bool toHide ){
     return Container(
       height: 45,
-      margin: EdgeInsets.only(left: 20,right: 20),
+      margin: EdgeInsets.only(left: 20, right: 20),
       child: TextField(
         controller: controller,
         obscureText: toHide,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
-            labelText: text,
-            suffixIcon: Icon(iconData),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-
-            )
+          labelText: text,
+          labelStyle: TextStyle(
+            color: Colors.deepOrange
+          ),
+          suffixIcon: Icon(iconData,color: Colors.deepOrange,),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(
+              color: Colors.deepOrange, // Set the desired border color here
+            ),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
         ),
       ),
     );
+
   }
+
+static CustomLogoBtn(
+    //Add actions .......
+    Image logo,
+    ){
+    return Container(
+      width: 50,
+      height: 50,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: logo,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        border: Border.all(
+          color: Colors.deepOrange,
+        ),
+      ),
+    );
+}
+
+
+  //Button
   static CustomBtn(
       VoidCallback voidCallback ,String text){
     return  InkWell(
@@ -66,14 +104,8 @@ class UiHelper{
         margin: EdgeInsets.only(left: 20,right: 20),
         height: 50,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(
-
-                colors: [
-                  Colors.orange,
-                  Colors.pink.shade500,
-                  Colors.orange,]
-            )
+            borderRadius: BorderRadius.circular(30),
+          color: Colors.deepOrange
         ),
         child: Center(child: Text(text,style: TextStyle(fontWeight: FontWeight.w900,color: Colors.white),),),
       ),
