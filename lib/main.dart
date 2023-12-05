@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled9/Screens/home_screen.dart';
 import 'package:untitled9/firebase_options.dart';
 
-import 'Screens/Splash_screen.dart';
-import 'firebase_connections/email_auth/Login_screen.dart';
+ 
 import 'firebase_connections/phone_auth/sign_in_with_phone.dart';
 
 void main() async {
